@@ -53,8 +53,8 @@ namespace CrudMySQL
         public void CREATE()
         {
             //crud.id_estado = parstextBox1.Text;
-            crud.id_estado = Int32.Parse(textBox1.Text);
-            crud.estado = textBox2.Text;
+            crud.id_status = Int32.Parse(textBox1.Text);
+            crud.status = textBox2.Text;
             crud.Create_data();
             textBox1.Clear();
             textBox2.Clear();
@@ -65,8 +65,8 @@ namespace CrudMySQL
         {
             try
             {
-                crud.id_estado = Int32.Parse(textBox3.Text);
-                crud.estado = textBox4.Text;
+                crud.id_status = Int32.Parse(textBox3.Text);
+                crud.status = textBox4.Text;
                 crud.Update_data();
                 textBox3.Clear();
                 textBox4.Clear();
@@ -85,7 +85,7 @@ namespace CrudMySQL
         {
             try
             {
-                crud.id_estado = Int32.Parse(textBox3.Text);
+                crud.id_status = Int32.Parse(textBox3.Text);
                 crud.Delete_data();
                 textBox3.Clear();
                 textBox4.Clear();

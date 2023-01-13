@@ -18,7 +18,7 @@ namespace CrudMySQL.myClass
             //string server = "127.0.0.1";
             string server = "localhost";
             string user = "root";
-            string database = "dtlcomco_asignador";
+            string database = "employees";
             string pass = "root";
             string port = "3306";
 
@@ -37,8 +37,8 @@ namespace CrudMySQL.myClass
     class CRUD : DB
     {
         //PROPERTIES
-        public int id_estado { set; get; }
-        public string estado { set; get; }
+        public int id_status { set; get; }
+        public string status { set; get; }
 
         //READ PROPERTIES
         public DataTable dt = new DataTable();
@@ -51,12 +51,12 @@ namespace CrudMySQL.myClass
             conn.Open();
             using (MySqlCommand cmd = new MySqlCommand())
             {
-                cmd.CommandText = @"INSERT INTO dtlcomco_asignador.estado (id_estado, estado) VALUES (@id_estado,@estado)";
+                cmd.CommandText = @"INSERT INTO employees.status (id_status, status) VALUES (@id_status,@status)";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = conn;
 
-                cmd.Parameters.Add("@id_estado", MySqlDbType.VarChar).Value = id_estado;
-                cmd.Parameters.Add("@estado", MySqlDbType.VarChar).Value = estado;
+                cmd.Parameters.Add("@id_status", MySqlDbType.VarChar).Value = id_status;
+                cmd.Parameters.Add("@status", MySqlDbType.VarChar).Value = status;
 
                 cmd.ExecuteNonQuery();
                 Console.WriteLine("insert a new record.");
@@ -71,12 +71,12 @@ namespace CrudMySQL.myClass
             using (MySqlCommand cmd = new MySqlCommand())
 
             {
-                cmd.CommandText = @"UPDATE dtlcomco_asignador.estado SET estado = @estado WHERE id_estado = @id_estado";
+                cmd.CommandText = @"UPDATE employees.status SET status = @status WHERE id_status = @id_status";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = conn;
 
-                cmd.Parameters.Add("@id_estado", MySqlDbType.VarChar).Value = id_estado;
-                cmd.Parameters.Add("@estado", MySqlDbType.VarChar).Value = estado;
+                cmd.Parameters.Add("@id_status", MySqlDbType.VarChar).Value = id_status;
+                cmd.Parameters.Add("@status", MySqlDbType.VarChar).Value = status;
                 cmd.ExecuteNonQuery();
                 using (MySqlDataReader reader = cmd.ExecuteReader())
 
@@ -100,11 +100,11 @@ namespace CrudMySQL.myClass
             conn.Open();
             using (MySqlCommand cmd = new MySqlCommand())
             {
-                cmd.CommandText = @"DELETE FROM dtlcomco_asignador.estado WHERE id_estado = @id_estado";
+                cmd.CommandText = @"DELETE FROM employees.status WHERE id_status = @id_status";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = conn;
 
-                cmd.Parameters.Add("@id_estado", MySqlDbType.VarChar).Value = id_estado;
+                cmd.Parameters.Add("@id_status", MySqlDbType.VarChar).Value = id_status;
                 cmd.ExecuteNonQuery();
                 Console.WriteLine("Deleted a record.");
                 conn.Close();
@@ -115,7 +115,7 @@ namespace CrudMySQL.myClass
         public void Read_data()
         {
             dt.Clear();
-            string sql = "SELECT * FROM dtlcomco_asignador.estado";
+            string sql = "SELECT * FROM employees.status";
             MySqlDataAdapter mda = new MySqlDataAdapter(sql, conn);
             mda.Fill(ds);
             dt = ds.Tables[0];
