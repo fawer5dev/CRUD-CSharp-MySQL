@@ -15,7 +15,6 @@ namespace CrudMySQL.myClass
 
         public DB()
         {
-            //string server = "127.0.0.1";
             string server = "localhost";
             string user = "root";
             string database = "employees";
@@ -29,7 +28,7 @@ namespace CrudMySQL.myClass
                     "password=" + pass + "";
 
             conn = new MySqlConnection(connStr);
-            Console.WriteLine("Connecting to MySQL...");
+            Console.WriteLine("Connecting to MySQL DB...");
         }
     }
 

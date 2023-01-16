@@ -52,7 +52,6 @@ namespace CrudMySQL
         //CREATE function
         public void CREATE()
         {
-            //crud.id_estado = parstextBox1.Text;
             crud.id_status = Int32.Parse(textBox1.Text);
             crud.status = textBox2.Text;
             crud.Create_data();
@@ -77,7 +76,7 @@ namespace CrudMySQL
                 MessageBox.Show("id_user is empty");
                 textBox3.Clear();
                 textBox4.Clear();
-            }            
+            }
         }
 
         //DELETE function
@@ -96,7 +95,7 @@ namespace CrudMySQL
                 MessageBox.Show("id_user is empty");
                 textBox3.Clear();
                 textBox4.Clear();
-            }           
+            }
         }
 
         //GET DATA
